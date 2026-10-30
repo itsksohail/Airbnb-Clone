@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, '/uploads')));
 let store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: 'mongo_key_donkey'
+        secret: process.env.SECRET_MONGO_SESSION
     },
     touchAfter: 24 * 3600
 })
@@ -67,7 +67,7 @@ store.on('error', ()=>{
 
 const expSessionOpt = {
     store,
-    secret: "secretKey",
+    secret: process.env.SECRET_EXP_SESSION,
     resave: false,
     saveUninitialized: true,
     cookies: {
