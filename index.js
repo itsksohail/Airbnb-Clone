@@ -101,9 +101,9 @@ app.use('/listings/:lis_id/reviews', review_routes);
 
 app.use('/', user_routes);
 
-// app.get('/', (req, res) => {
-//     res.send('Hello this is root');
-// });
+app.get('/', (req, res) => {
+    res.redirect('/home');
+});
 
 app.get('/create_new_listing', isLoggedIn, (req, res, next) => {
     res.render('listingForm.ejs');
