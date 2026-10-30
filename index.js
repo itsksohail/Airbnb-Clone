@@ -102,7 +102,7 @@ app.use('/listings/:lis_id/reviews', review_routes);
 app.use('/', user_routes);
 
 app.get('/', (req, res) => {
-    res.redirect('/home');
+    req.flash('flashSuccess', 'This is root page click on Explore button');
 });
 
 app.get('/create_new_listing', isLoggedIn, (req, res, next) => {
