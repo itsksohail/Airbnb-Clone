@@ -1,0 +1,36 @@
+<% layout('./layouts/boilerplate_preview.ejs') %>
+
+    <body>
+        <div class="row">
+            <div class="col-6 offset-3 signupdiv">
+                <h3>Create your account</h3>
+                <div class="mb-3">
+                    <form action="/user/signup" method="post" enctype="application/x-www-form-urlencoded"
+                        class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="user_id" class="form-label">Username</label>
+                            <input type="text" name="user_name" id="user_id" class="form-control" required>
+                            <div class="valid-feedback">Username looks good</div>
+                            <div class="invalid-feedback">Username cannot be a empty value</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_id" class="form-label">Email</label>
+                            <input type="email" name="email_name" id="email_id" class="form-control" required>
+                            <div class="valid-feedback">Email looks good</div>
+                            <div class="invalid-feedback">Email cannot be a empty value</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_id" class="form-label">Password</label>
+                            <input type="password" name="password_name" id="password_id" class="form-control" required>
+                            <div class="valid-feedback">Password looks good</div>
+                            <div class="invalid-feedback">Password cannot be a empty value</div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+                <div class="mb-3">
+                    <small><a href="/login">Already have an account, Login to your account</a></small>
+                </div>
+            </div>
+        </div>
+    </body>

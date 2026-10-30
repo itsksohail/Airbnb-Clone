@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 350;
+}
+
+.home_container{
+    position: relative;
+    margin-top: 10%;
+    /* background-color: aqua; */
+    /* border: 2px solid brown; */
+}
+
+.home_header > h2{
+    color: black;
+    padding-left: 120px;
+}
+
+.showTax{
+    display: none;
+}
+
+.grid_class{
+    position: relative;
+    padding: 20px 0 0 100px;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    grid-gap: 30px;
+    /* border: 2px solid black; */
+}
+
+.grid_child_outer{
+    padding: 0;
+    width: 12rem !important;
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.grid_child_outer .card-img-overlay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid_child_outer .card-img-overlay .guest_fav_tag{
+    background-color: rgba(220, 220, 220, 0.893);
+    font-size: 12px;
+    border-radius: 16px;
+    width: 6.5rem;
+    height: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid_child_outer .card-img-top{
+    border-radius: 1rem;
+    width: 12rem !important;
+    height: 12rem !important;
+    object-fit: cover;
+}
+
+.grid_child_outer:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgb(121, 120, 120);
+}
+
+.grid_child_outer:active{
+    cursor: pointer;
+    background-color: rgb(178, 178, 178);
+    transition: all ease-in-out 200ms;
+}
+
+.gird_child_outer .card-body{
+    padding: 0;
+}

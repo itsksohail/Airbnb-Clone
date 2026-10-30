@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* .img_preview_cls{
+    display: none;
+}
+
+.img_preview_cls_b{
+    display: block;
+} */
+
+.form_holder{
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8%;
+    border: 2px solid black;
+    border-radius: 16px;
+    width: 600px;
+    height: auto;
+    padding: 40px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 24px;
+}
+
+.form_header{
+    width: 80%;
+    margin: 10px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+
+.form_header .close_btn_cls{
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_holder .edit_btn{
+    width: 6em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

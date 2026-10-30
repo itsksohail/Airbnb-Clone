@@ -1,0 +1,161 @@
+
+
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container-fluid">
+        <a href="/home" class="navbar-brand" style="color: #FF385C;"><i style="color: #FF385C;"
+                class="fa-brands fa-airbnb"></i>Airbnb</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Explore</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Dropdown</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a href="/autoInitListing" style="text-decoration: none;">Auto Listing</a>
+                    </li>
+                    <li class="dropdown-item"><a href="#" style="text-decoration: none;">Another action</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="dropdown-item"><a href="#" style="text-decoration: none;">Something else here</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="d-flex search_form" style="margin-left: 12rem;" role="search">
+            <input class="form-control search_field me-2" type="search" style="width: 20rem;" placeholder="Search" aria-label="search">
+            <button type="submit" class="btn" style="background-color: #FF385C; color: white;">Search</button>
+        </form>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/create_new_listing">Airbnb your home</a>
+                </li>
+                <% if(!currUser) { %>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/login?originalUrl=/home">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" href="/signup">Signup</a>
+                    </li>
+                    <% } %>
+                        <% if(currUser) { %>
+                            <li class="nav-item">
+                                <a href="/logout" class="nav-link">Logout</a>
+                            </li>
+                            <% } %>
+            </ul>
+        </div>
+    </div>
+    <div class="navOnlyHomeDisplay">
+        <div class="filterNav">
+            <div class="filterNavClick" id="Trending">
+                <div>
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <small>Trending</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Rooms">
+                <div>
+                    <i class="fa-solid fa-hotel"></i>
+                    <small>Rooms</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Iconic Cities">
+                <div>
+                    <i class="fa-solid fa-city"></i>
+                    <small>Iconic Cities</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Mountains">
+                <div>
+                    <i class="fa-solid fa-mountain"></i>
+                    <small>Mountains</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Castles">
+                <div>
+                    <i class="fa-brands fa-fort-awesome"></i>
+                    <small>Castles</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="mazing Pools">
+                <div>
+                    <i class="fa-solid fa-person-swimming"></i>
+                    <small>Amazing Pools</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Camping">
+                <div>
+                    <i class="fa-solid fa-tent"></i>
+                    <small>Camping</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Farms">
+                <div>
+                    <i class="fa-solid fa-cow"></i>
+                    <small>Farms</small>
+                </div>
+            </div>
+            <div class="filterNavClick" id="Arctic">
+                <div>
+                    <i class="fa-solid fa-igloo"></i>
+                    <small>Arctic</small>
+                </div>
+            </div>
+        </div>
+        <div class="taxNav">
+            <form>
+                <div class="form-check form-switch form-check-reverse">
+                    <input class="form-check-input tax_switch" type="checkbox" value="" id="flexSwitchCheckReverse"
+                        role="switch" switch>
+                    <label class="form-check-label" for="flexSwitchCheckReverse">Show taxes for all</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+</nav>
+<script>
+    const taxSwitch = document.querySelector('.tax_switch');
+    const filterNavClick = document.querySelectorAll('.filterNavClick');
+    const search_form = document.querySelector('.search_form');
+
+    taxSwitch.addEventListener('click', (e) => {
+
+        let showTax = document.querySelectorAll('.showTax');
+
+        for (tax of showTax) {
+            if (tax.style.display === 'none' || tax.style.display === '') {
+                tax.style.display = 'inline';
+            } else {
+                tax.style.display = 'none';
+            }
+        }
+
+    });
+
+    filterNavClick.forEach((e) => {
+        e.addEventListener('click', (e)=>{
+            // console.log(e.currentTarget.id);
+            window.location.href = `/listings/filter/${e.currentTarget.id}`;
+        });
+    })
+
+    search_form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        let input_field = e.target.querySelector('.search_field');
+        console.log(input_field.value);
+        window.location.href = `/listings/find/search?q=${input_field.value}`;
+    })
+
+</script>

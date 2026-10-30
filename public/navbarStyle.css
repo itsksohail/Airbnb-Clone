@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.navOnlyHomeDisplay {
+    display: none;
+}
+
+.filterNav {
+    width: 50%;
+    height: 4.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px 0 60px;
+}
+
+.filterNav>.filterNavClick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterNav>.filterNavClick:hover {
+    cursor: pointer;
+}
+
+.filterNav>div>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 3rem;
+    opacity: 0.8;
+    transition: all ease-in-out 400ms;
+}
+
+.filterNav>.filterNavClick:hover>div {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: all ease-in-out 400ms;
+}
+
+.filterNav>.filterNavClick:active {
+    transform: scale(0.9);
+}
+
+.taxNav {
+    border: 2px solid rgba(0, 0, 0, 0.127);
+    border-radius: 5rem;
+    padding: 8px 30px 8px 35px;
+    margin-right: 10rem;
+}

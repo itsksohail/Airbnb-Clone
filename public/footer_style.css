@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+footer {
+    position: relative;
+    /* transform: translateY(100%); */
+    /* bottom: 0; */
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-socials,
+.f-info-brands,
+.f-info-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    width: 100%;
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}

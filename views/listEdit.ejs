@@ -1,0 +1,156 @@
+<% layout('./layouts/boilerplate_preview.ejs') %>
+
+    <body>
+        <div class="form_holder">
+            <div class="form_header">
+                <div>
+                    <h2>Edit Listings</h2>
+                </div>
+                <div>
+                    <button class="close_btn_cls btn btn-danger">X</button>
+                </div>
+            </div>
+            <div class="form_body">
+                <form class="edit_list_form needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="title_id" class="form-label">Title</label>
+                        <input type="text" name="title_name" id="title_id" class="form-control" required>
+                        <div class="valid-feedback">Title look's good!</div>
+                        <div class="invalid-feedback">Title should be valid.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image_id" class="form-label">Image</label>
+                        <div class="img_preview_cls">
+                            <img id="img_preview" src="<%=optImg%>" width="160" height="130">
+                        </div>
+                        <input type="file" name="image_name" id="image_id" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="price_id" class="form-label">Price</label>
+                            <input type="number" name="price_name" id="price_id" class="form-control" required>
+                            <div class="valid-feedback">Price looks good!</div>
+                            <div class="invalid-feedback">Price should be valid.</div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="location_id" class="form-label">Location</label>
+                            <input type="text" name="location_name" id="location_id" class="form-control" required>
+                            <div class="valid-feedback">Location looks good!</div>
+                            <div class="invalid-feedback">Location should be valid.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country_id" class="form-label">Country</label>
+                        <select name="country_name" id="country_id" class="form-select" required>
+                            <option value="">Select Country</option>
+                            <option value="India">India</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                        </select>
+                        <div class="valid-feedback">Country is valid!</div>
+                        <div class="invalid-feedback">Country should be valid.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description_id" class="form-label">Description</label>
+                        <textarea name="description_name" id="description_id" rows="4" cols="40" class="form-control"
+                            required></textarea>
+                        <div class="valid-feedback">Catchy Description!</div>
+                        <div class="invalid-feedback">Description should be valid</div>
+                    </div>
+                    <button class="edit_btn btn btn-dark" type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        let constListEdit = <%- JSON.stringify(resp) %>;
+
+        const title_id = document.querySelector('#title_id');
+        const price_id = document.querySelector('#price_id');
+        const location_id = document.querySelector('#location_id');
+        const country_id = document.querySelector('#country_id');
+        const description_id = document.querySelector('#description_id');
+        const image_id = document.querySelector('#image_id');
+        const img_preview = document.querySelector('#img_preview');
+        const img_preview_cls = document.querySelector('.img_preview_cls');
+        const close_btn_cls = document.querySelector('.close_btn_cls');
+        const edit_list_form = document.querySelector('.edit_list_form');
+
+        let img_v;
+
+        close_btn_cls.addEventListener('click', () => {
+            window.location.href = '/home';
+        });
+
+        function loadEdit() {
+            title_id.value = constListEdit.title;
+            price_id.value = constListEdit.price;
+            location_id.value = constListEdit.location;
+            country_id.value = constListEdit.country;
+            description_id.value = constListEdit.description;
+            img_v = constListEdit.image;
+            console.log("image tag value : ", img_v);
+        }
+
+        image_id.addEventListener('change', (e) => {
+            // img_preview_cls.classList.remove('img_preview_cls');
+            // img_preview_cls.classList.add('img_preview_cls_b');
+            console.log('img input value change');
+            let file = e.target.files[0];
+            if (!file) return;
+            let reader = new FileReader();
+            reader.onload = ev => {
+                img_preview.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        edit_list_form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (e.currentTarget.checkValidity()) {
+                let pb = confirm('Do you want to update new values?');
+
+                if (pb) {
+
+                    let formData = new FormData(e.target);
+
+                    try {
+                        let response = await fetch(`/listings/${constListEdit._id}/update`, {
+                            method: 'PUT',
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            alert('Listings data Updated successfully');
+                            window.location.href = `/listings/${constListEdit._id}`;
+                        } else {
+                            let errorHtml = await response.text();
+                            document.open();
+                            document.write(errorHtml);
+                            document.close();
+                        }
+
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
+            }
+        });
+
+        // ======= Initialize ========
+
+        loadEdit();
+    </script>

@@ -1,0 +1,15 @@
+<% layout('./layouts/boilerplate_preview.ejs') %>
+
+<body>
+    <div class="row">
+        <div class="col-10 alert alert-warning error-div" role="alert">
+            <div>
+                <h5>Error: <%= err.statuscode %></h5>
+            </div>
+            <br>
+            <div>
+                <%= err.default_message %>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/home_style.css">
+    <link rel="stylesheet" href="/preview_style.css">
+    <link rel="stylesheet" href="/list_style.css">
+    <link rel="stylesheet" href="/listEdit_style.css">
+    <link rel="stylesheet" href="/footer_style.css">
+    <link rel="stylesheet" href="/error_style.css">
+    <link rel="stylesheet" href="/flash.css">
+    <link rel="stylesheet" href="/signup_style.css">
+    <link rel="stylesheet" href="/navbarStyle.css">
+    <!-- Includes the Mapbox GL JS CSS stylesheet -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.32.0/mapbox-gl.css" rel="stylesheet">
+    <!-- Imports the Mapbox GL JS bundle -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.32.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-width: 100%;
+        }
+
+        .container {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../includes/navbar.ejs') %>
+        <div class="container">
+            <%- include('../includes/flash.ejs') %>
+                <%- body %>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/script/form_script.js"></script>
+</body>
+<%- include('../includes/footer.ejs') %>
+
+</html>

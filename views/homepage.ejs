@@ -1,0 +1,53 @@
+<% layout('./layouts/boilerplate_preview.ejs') %>
+<body>
+    <br>
+        <div class="home_container">
+            <div class="home_header">
+                <h2>All listings</h2>
+            </div>
+            <div class="row row-cols-lg-5 row-cols-md-2 row-cols-sm-2 row-cols-xs-1 grid_class">
+                <% for(let data of resp){ %>
+                    <div class="card col grid_child_outer" id="<%= data._id %>">
+                        <img src=<%=data.image.secure_url%> class="card-img-top" alt="villa images">
+                        <div class="card-img-overlay">
+                            <div class="guest_fav_tag">
+                                <b>Guest favourite</b>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <small><b>
+                                        <%=data.title%>
+                                    </b></small> <br>
+                                <small>
+                                    &#8377; <%= data.price.toLocaleString('en-IN') %> / night <span class="showTax"> + 18% GST</span>
+                                        <br>
+                                        <%= data.location %> <br>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </body>
+    <script>
+        const grid_child_outer = document.querySelectorAll('.grid_child_outer');
+        const navOnlyHomeDisplay = document.querySelector('.navOnlyHomeDisplay');
+
+        grid_child_outer.forEach((e) => {
+            e.addEventListener('click', (e) => {
+                console.log('id', e.currentTarget.id);
+                window.location.href = `/listings/${e.currentTarget.id}`;
+            });
+        });
+
+        function loadFilter(){
+            navOnlyHomeDisplay.classList.add('container-fluid');
+        }
+
+        loadFilter();
+    </script>

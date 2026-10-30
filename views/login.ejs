@@ -1,0 +1,29 @@
+<% layout('./layouts/boilerplate_preview.ejs') %>
+
+<body>
+    <div class="row">
+        <div class="col-6 offset-3 signupdiv">
+            <h3>Login to wanderlust</h3>
+            <div class="mb-3">
+                <form action="/user/login" method="post" enctype="application/x-www-form-urlencoded" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="user_id" class="form-label">Username</label>
+                        <input type="text" id="user_id" name="username" class="form-control" required>
+                        <div class="valid-feedback">Username looks good</div>
+                        <div class="invalid-feedback">Username cannot be a empty value</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_id" class="form-label">Password</label>
+                        <input type="password" id="password_id" name="password" class="form-control" required>
+                        <div class="valid-feedback">Password looks good</div>
+                        <div class="invalid-feedback">Password cannot be a empty value</div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+            <div class="mb-3">
+                <small><a href="/signup">Don't have an account, Create a New Account</a></small>
+            </div>
+        </div>
+    </div>
+</body>

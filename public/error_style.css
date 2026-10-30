@@ -1,0 +1,8 @@
+.error-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    margin-top: 5%;
+    height: auto;
+}

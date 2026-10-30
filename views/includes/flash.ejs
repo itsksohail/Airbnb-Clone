@@ -1,0 +1,22 @@
+<% if( flashSuccess && flashSuccess.length ) { %>
+
+<div class="alert alert-primary alert-dismissible fade show col-6 offset-3 alert_div" role="alert">
+    <span><%= flashSuccess %></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<% } %>
+
+<% if(flashError && flashError.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 alert_div" role="alert">
+        <span><%= flashError %></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if(passportError && passportError.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 alert_div" role="alert">
+        <span><%= passportError %></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>

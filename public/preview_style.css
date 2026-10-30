@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.pre_body_holder{
+    position: relative;
+    margin-top: 5%;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+.pre_body_holder .pre_header{
+    width: 100%;
+    padding-left: 15%;
+    display: flex;
+    justify-content: flex-start;
+    /* border: 2px solid black; */
+}
+
+.pre_header .bk_btn{
+    border: none;
+    background-color: white;
+    width: 3em;
+    height: 3em;
+}
+
+
+.pre_header .bk_btn:hover{
+    cursor: pointer;
+}
+
+
+.pre_header .bk_btn > i{
+    font-size: 30px;
+}
+
+.pre_body{
+    position: relative;
+    margin-left: 23%;
+    align-self: flex-start;
+    width: 55%;
+    /* border: 2px solid yellow; */
+}
+
+.pre_body .pre_h1{
+    color: black;
+}
+
+.pre_body img{
+    width: 400px;
+    height: 300px;
+    padding: 20px 0 20px 50px;
+}
+
+.pre_body_holder .btns_div{
+    width: 150px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit_list_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 2em;
+}
+
+.del_list_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 2em;
+}
+
+#map {
+    position: relative;
+    width: 550px;
+    height: 40vh;
+}
+
+.feedback_container{
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.feedback_body{
+    /* border: 2px solid yellow; */
+    width: 45em;
+}
+
+.star_container label:hover{
+    color: gold;
+}
+
+.star_container{
+    direction: rtl;
+    display: inline-flex;
+}
+
+.star_container label{
+    font-size: 1.6em;
+}
+
+.star_container input{
+    display: none;
+}
+
+.star_container input:checked ~ label{
+    color: gold;
+}
+
+.feedback_footer{
+    width: 45em;
+}
